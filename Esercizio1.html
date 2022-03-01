@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--Crea una pagina web con 3 pulsanti, ad ogni pulsante è associata una scatola di diverso colore 
+da mostrare quando i pulsanti vengono premuti e da rimuovere quando il pulsante viene premuto di nuovo-->
+<html>
+    <head>
+        <title>
+            Esercizio 1 
+        </title>
+    </head>
+    <style>
+        .box1
+        {
+            height: 300px;
+            width: 300px;
+            background-color: red;
+        }
+        .box2
+        {
+            height: 300px;
+            width: 300px;
+            background-color: green;
+        }
+        .box3
+        {
+            height: 300px;
+            width: 300px;
+            background-color: blue;
+        }
+    </style>
+    <body>
+        <div id="app">
+            <button  @Click="visibile_1">Box1</button>
+            <div v-if="visibile1" class="box1"></div>
+            <button   @Click="visibile_2">Box2</button>
+            <div  v-if="visibile2" class="box2"></div>
+            <button   @Click="visibile_3">Box3</button>
+            <div  v-if="visibile3" class="box3"></div>
+        </div>
+    </body>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        let app=Vue.createApp({
+
+            data: function()
+            {
+                return {
+                    visibile1 : false,
+                    visibile2 : false,
+                    visibile3 : false
+                }
+            },
+            methods:
+            {
+                visibile_1()
+                {
+                    this.visibile1=!this.visibile1
+                },
+                visibile_2()
+                {
+                    this.visibile2=!this.visibile2
+                },
+                visibile_3()
+                {
+                    this.visibile3=!this.visibile3
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</html>
